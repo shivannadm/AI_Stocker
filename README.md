@@ -45,52 +45,83 @@ The project will deliver an accurate, **real-time stock price prediction model**
 ---
 
 ## How to Run the Project
+## Django Setup Commands
 
-Commands to create django project
+### Check Django version:
+```sh
+py -m django --version
+```
 
-version: <code>py -m django --version</code>
+### Create a virtual environment:
+```sh
+python -m venv env_name
+```
 
-create venv : <code>python -m venv env_name</code>
+### Create a Django project:
+```sh
+django-admin startproject project_name .
+```
 
-create project: <code>django-admin startproject project_name .</code>
+### Create a Django app:
+```sh
+django-admin startapp app_name
+```
 
-create app: <code>django-admin startapp app_name</code>
-
-run server: <code>python manage.py runserver </code>
-
-1. Clone this repository:
-   
-bash
-   git clone https://github.com/shivannadm/AI_Stocker
-   cd AI-Forecasting-for-Investor-Decision
-
-2. Install required dependencies:
-   
-bash
-   pip install -r requirements.txt
-
-3. Run the Jupyter Notebook to train and evaluate the model.
-   
-bash
-   jupyter notebook
-
-4. Follow the instructions in the notebook to preprocess data, train the models, and generate predictions.
+### Run the server:
+```sh
+python manage.py runserver
+```
 
 ---
 
-## Folder Structure
-```
-plaintext
-high-frequency-stock-prediction/
-│
-├── data/                 # Raw and preprocessed data
-├── models/               # Saved model files
-├── notebooks/            # Jupyter Notebooks for development
-├── requirements.txt      # Python dependencies
-├── README.md             # Project documentation
-└── results/              # Output predictions and performance metrics
+## Steps to Set Up the Project
 
+### 1. Clone this repository:
+```sh
+git clone https://github.com/shivannadm/AI_Stocker
+cd AI-Forecasting-for-Investor-Decision
 ```
+
+### 2. Install required dependencies:
+```sh
+pip install -r requirements.txt
+```
+
+### 3. Run Jupyter Notebook to train and evaluate the model:
+```sh
+jupyter notebook
+```
+
+### 4. Follow the instructions in the notebook to:
+- Preprocess the data
+- Train the models
+- Generate predictions
+
+---
+
+# Project Structure
+
+## Directories
+- `.vscode/` - Configuration files for VS Code.
+- `aiApp/` - AI-related Django app.
+- `aiProj/` - Main project directory.
+- `modelApp/` - Another Django app, possibly for handling models.
+- `templates/` - HTML templates for the project.
+- `trainedModel/` - Directory for storing trained ML models.
+
+## Files
+- `.gitattributes` - Git configuration file.
+- `README.md` - Project documentation.
+- `RIL.csv` - Dataset file in CSV format.
+- `TriningModel.ipynb` - Jupyter Notebook for training the model (**possible typo: "Trining" should be "Training"**).
+- `db.sqlite3` - SQLite database file.
+- `manage.py` - Django management script.
+- `requirements.txt` - List of dependencies for the project.
+
+## Notes
+- Ensure that `requirements.txt` contains all necessary packages.
+- Consider fixing the spelling of `TriningModel.ipynb` to `TrainingModel.ipynb`.
+  
 ---
 
 ## Contributor
