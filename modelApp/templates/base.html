@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Stock Price Prediction</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #32353a, #02092d);
+            color: #ffffff;
+        }
+        header {
+            background: #161B22;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            color: #58A6FF;
+            font-size: 1.5em;
+        }
+        .empo{
+            font-size: 2.5em;
+            margin-bottom: 2.5rem;
+        
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #C9D1D9;
+            font-size: 1em;
+        }
+        nav ul li a:hover {
+            color: #58A6FF;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(to right, #1F6FEB, #238636);
+            color: white;
+        }
+        .hero h2 {
+            font-size: 2em;
+        }
+        .hero p {
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+        .hero .hero-buttons {
+            margin-top: 20px;
+        }
+        .hero .hero-buttons a {
+            text-decoration: none;
+            color: white;
+            background: #238636;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .hero .hero-buttons a:hover {
+            background: #2EA043;
+        }
+        main {
+            padding: 20px;
+            min-height: 60vh;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #161B22;
+            color: #C9D1D9;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-column {
+            width: 22%; /* Each column takes 22% */
+            min-width: 200px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2em;
+            color: #FFD700; /* Gold color for headings */
+            margin-bottom: 15px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: #00C9FF; /* Light blue hover effect */
+        }
+        .footer {
+            background-color: #222;
+            padding: 40px 80px;
+        }
+
+        .train{
+            text-align: center;
+            color: #00C9FF;
+        }
+        /* Spinner */
+        #loading-spinner {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 9999;
+        }
+    
+        .spinner {
+          border: 4px solid rgba(255, 255, 255, 0.3);
+          border-top: 4px solid #3498db;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          animation: spin 1s linear infinite;
+        }
+    
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        .p {
+            color: #3ba7e1;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>AI Stock Prediction</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Upload Dataset</a></li>
+                <li><a href="templates\index.html">Select Dataset</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="empo">
+            Empowering Your Stock Predictions with AI
+        </div>
+        <p>Leverage the power of AI for accurate stock price forecasting.</p>
+        <div class="hero-buttons">
+            <a href="#">Upload Your Dataset</a>
+            <a href="templates\index.html">Select Existing Dataset</a>
+        </div>
+    </section>
+
+    <!-- Dynamic Content Block -->
+    <main>
+        <h2 class="train">Stocks that we Trained for You</h2>
+        <div class="footer-container">
+            <!-- Column 1 -->
+            <div class="footer-column">
+                <h3>Banking Stocks</h3>
+                <a href="{% url 'axisbank' %}">AXIS BANK</a>
+                <a href="{% url 'tatamotors' %}">HDFC BANK</a>
+                <a href="{% url 'tcs' %}">ICICI BANK</a>
+                <a href="#">INDUSIND BANK</a>
+                <a href="#">KOTAK MAHINDRA BANK</a>
+                <a href="{% url 'sbiin' %}">SBI</a>
+                               
+            </div>
+
+            <!-- Column 2 -->
+            <div class="footer-column">
+                <h3>IT Stocks</h3>
+                <a href="#">HCL TECHNOLOGIES</a>
+                <a href="#">INFOSYS</a>
+                <a href="{% url 'tcs' %}">TCS</a>
+                <a href="{% url 'techm' %}">TECH MAHINDRA</a>
+                <a href="{% url 'wipro' %}">WIPRO</a> 
+            </div>
+
+            <!-- Column 3 -->
+            <div class="footer-column">
+                <h3>Automobile Stocks</h3>
+                <a href="{% url 'bajajauto' %}">BAJAJ AUTO</a>
+                <a href="{% url 'eichermotor' %}">EICHER MOTORS</a>
+                <a href="#">HERO MOTOCORP</a>
+                <a href="{% url 'mm' %}">M&M</a>
+                <a href="{% url 'maruti' %}">MARUTI SUZUKI</a>
+                <a href= "{% url 'tatamotors' %}">TATA MOTORS</a>
+                
+            </div>
+
+            <!-- Column 4 -->
+            <div class="footer-column">
+                <h3>Metal & Construction</h3>
+                <a href="{% url 'coal' %}">COAL INDIA</a>
+                <a href="#">HINDALCO</a>
+                <a href="#">JSW STEEL</a>
+                <a href="{% url 'tatasteel' %}">TATA STEEL</a>
+                <a href="{% url 'ultracem' %}">ULTRATECH CEMENT</a>
+                <a href="{% url 'lt' %}">L&T</a>
+                <a href="{% url 'shreecem' %}">SHREE CEMENT.</a>
+            </div>
+            
+            <!-- Column I1 -->
+            <div class="footer-column">
+                <h3>Finance & Healthcare</h3>
+                <a href="{% url 'bajajfin' %}">BAJAJ FINSERV</a>
+                <a href="{% url 'bjfn' %}">BAJAJ FINANCE</a>
+                <a href="#">SHRIRAM FINANCE</a>
+                <a href="{% url 'sbilife' %}">SBI LIFE INSURANCE</a>
+                <a href="{% url 'cipla' %}">CIPLA</a>
+                <a href="{% url 'dredlab' %}">DR. REDDYS LAB</a>
+                <a href="{% url 'sunpharm' %}">SUN PHARMA</a>
+                <a href="{% url 'divilab' %}">DIVIS LAB</a>
+            </div>
+
+            <!-- Column I2 -->
+            <div class="footer-column">
+                <h3>FMCG & Consumer Goods</h3>
+                <a href="#">HINDUSTAN UNILEVER</a>
+                <a href="#">ITC</a>
+                <a href="{% url 'nestle' %}">NESTLE</a>
+                <a href="{% url 'tataconsumer' %}">TATA CONSUMER</a>
+                 <a href="{% url 'britania' %}">BRITANNIA</a>
+            </div>
+
+            <!-- Column I3 -->
+            <div class="footer-column">
+                <h3>Power & Energy</h3>
+                <a href="{% url 'bpcl' %}">BPCL</a>
+                <a href="#">IOC</a>
+                <a href="{% url 'ongc' %}">ONGC</a>
+                <a href="#">RELIANCE IND.</a>
+                <a href="{% url 'ntpc' %}">NTPC</a>
+                <a href="{% url 'powergrid' %}">POWER GRID</a>
+                <a href="{% url 'upl' %}">UPL</a>
+                <a href="{% url 'apse' %}">ADANI PORT'S</a>
+                
+            </div>
+
+            <!-- Column I4 -->
+            <div class="footer-column">
+                <h3>Nifty 50 Other</h3>
+                <a href="{% url 'aspn' %}">ASIAN PAINTS</a>
+                <a href="#">BHARAT ELECTRONICS</a>
+                <a href="{% url 'brtair' %}">BHARTI AIRTEL</a>
+                <a href="{% url 'titan' %}">TITAN</a>
+                <a href="#">TRENT</a>
+                <a href="#">ADANI ENTERPRISES</a>
+                <a href="{% url 'grsm' %}">GRASIM INDUSTRIES</a>
+            </div>
+        </div>
+
+        <div id="loading-spinner" style="display: none;">
+            <div class="spinner"></div>
+            <p class="p">Loading...</p>
+        </div>
+        <script>
+            document.querySelectorAll('a').forEach(function(anchor) {
+              anchor.addEventListener('click', function(event) {
+                event.preventDefault(); 
+                document.getElementById('loading-spinner').style.display = 'block';
+          
+                const href = this.getAttribute('href');
+          
+                setTimeout(function() {
+                  document.getElementById('loading-spinner').style.display = 'none';
+                  window.location.href = href;
+                }, 2000);
+              });
+            });
+          </script>          
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <h2>Stock market is subjected to the risk and high volatitlity</h2>
+    <p>&copy; AI forecast for Investor Decision | Is makes investments easier</p>
+    </footer>
+</body>
+</html>
