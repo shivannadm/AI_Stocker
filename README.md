@@ -125,7 +125,7 @@ jupyter notebook
 ---
 
 ## Contributor
-- **Shivanna** (shivannadm6@gmail.com)
+- **Shivanna** (shivannadm16@gmail.com)
 
 ---
 
