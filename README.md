@@ -48,7 +48,7 @@ The project will deliver an accurate, **real-time stock price prediction model**
 1. Clone this repository:
    
 bash
-   git clone https://github.com/shivannadm/AI-Forecasting-for-Investor-Decision.git
+   git clone https://github.com/shivannadm/AI_Stocker
    cd AI-Forecasting-for-Investor-Decision
 
 2. Install required dependencies:
