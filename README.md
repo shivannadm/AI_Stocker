@@ -45,6 +45,19 @@ The project will deliver an accurate, **real-time stock price prediction model**
 ---
 
 ## How to Run the Project
+
+Commands to create django project
+
+version: <code>py -m django --version</code>
+
+create venv : <code>python -m venv env_name</code>
+
+create project: <code>django-admin startproject project_name .</code>
+
+create app: <code>django-admin startapp app_name</code>
+
+run server: <code>python manage.py runserver </code>
+
 1. Clone this repository:
    
 bash
