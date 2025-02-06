@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Images in Grid</title>
+    <style>
+        body {
+            /* background: linear-gradient(to bottom right, #f3de7f00, #00ffee63); */
+            
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Header Styling */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, #1F6FEB, #238636); /* Semi-transparent black */
+        }
+
+        .logo {
+            font-size: 1.4em;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            display: flex;
+            gap: 5px;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+    
+        }
+
+        /* Grid Container */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            gap: 25px; /* Space between images */
+            justify-items: center;
+            margin-top: 100px; /* Prevent overlap with fixed header */
+            padding: 20px;
+        }
+
+        .grid-container img {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.06); /* Optional shadow */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2 class="logo">🟢 NESTLE INDIA</h2>
+        <nav class="nav-bar">
+            <a>🔸Last Trade Price: 2299 |
+            <a>🔸Future Predicted Price: 2816 |
+            <a>🔸Market Sentiment: Positive |
+            <a>🔸Decision: Buy.</a>
+        </nav>
+    </header>
+
+    <div class="grid-container">
+        <img src="{% static 'prediction/nestle1.png' %}" alt="Graph 1">
+        <img src="{% static 'prediction/nestle2.png' %}" alt="Graph 2">
+        <img src="{% static 'prediction/nestle3.png' %}" alt="Graph 3">
+        <img src="{% static 'prediction/nestle4.png' %}" alt="Graph 4">      
+    </div>
+</body>
+</html>
