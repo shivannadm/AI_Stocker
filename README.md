@@ -136,7 +136,7 @@ Special thanks to the open-source libraries and frameworks that made this projec
 
 ## Contact
 For inquiries or collaboration opportunities, feel free to reach out:
-- **Email**: shivannadm6@gmail.com
+- **Email**: shivannadm16@gmail.com
 - **LinkedIn**: [Shivanna DM](https://www.linkedin.com/in/shivannadm)
 
 ---
